@@ -1,11 +1,36 @@
 ## Docker commands used to build the application 
 # TODO: insert the docker build command
+docker build -t techtrends .
 
 ## Docker commands used to run the application
 # TODO: insert the docker run command
+docker run -d -p 7111:3111 techtrends
+
+docker tag techtrends aldolinux/techtrends:v1.0.0
+docker push aldolinux/techtrends:v1.0.0
 
 ## Docker commands used to get the application logs
 # TODO: insert the docker logs command
+aldo@ayotl:~/Documents/Udacity/Cloud-NativeND/nd064_course_1/project/techtrends$ docker ps
+CONTAINER ID   IMAGE                                                 COMMAND                  CREATED         STATUS                          PORTS                                                                                          NAMES
+4a675005b20f   techtrends                                            "python app.py"          4 minutes ago   Up 4 minutes                    0.0.0.0:7111->3111/tcp                                                                         jolly_heisenberg
 
 ## Logs from the container running the TechTrends application
 # TODO: paste logs from the Docker container 
+aldo@ayotl:~/Documents/Udacity/Cloud-NativeND/nd064_course_1/project/techtrends$ docker logs 4a675005b20f
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+INFO:werkzeug: * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:192.168.1.97 - - [06/Nov/2021 13:16:55] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:192.168.1.97 - - [06/Nov/2021 13:16:55] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug:192.168.1.97 - - [06/Nov/2021 13:16:55] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:192.168.1.97 - - [06/Nov/2021 13:17:48] "GET / HTTP/1.1" 200 -
+INFO:app:11/06/2021, 13:21:40 | Article title="2020 CNCF Annual Report" retrieved successfully.
+INFO:werkzeug:192.168.1.97 - - [06/Nov/2021 13:21:40] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:192.168.1.97 - - [06/Nov/2021 13:21:44] "GET /create HTTP/1.1" 200 -
+INFO:app:11/06/2021, 13:21:48 | Article title="Example" created successfully.
+INFO:werkzeug:192.168.1.97 - - [06/Nov/2021 13:21:48] "POST /create HTTP/1.1" 302 -
+INFO:werkzeug:192.168.1.97 - - [06/Nov/2021 13:21:48] "GET / HTTP/1.1" 200 -
