@@ -11,7 +11,7 @@ spec:
   selector:
     matchLabels:
       app: techtrends
-      tag: latest
+      tag: v1.0.0
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -21,7 +21,7 @@ spec:
     metadata:
       labels:
         app: techtrends
-        tag: latest
+        tag: v1.0.0
     spec:
       containers:
       - image: aldolinux/{{ .Values.image.repository }}:{{ .Values.image.tag }}
