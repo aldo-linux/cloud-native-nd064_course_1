@@ -1,0 +1,9 @@
+apiVersion: v1
+name: techtrends
+description: Kubernetes Helm Chart for TechTrends
+keywords:
+  - techtrends
+version: 1.0.0
+maintainers:
+  - name: aldolinux
+    email: aldolinux@xyz.com
