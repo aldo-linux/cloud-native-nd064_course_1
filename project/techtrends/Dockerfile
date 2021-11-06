@@ -3,7 +3,7 @@ LABEL maintainer="Aldo Gonzalez"
 
 WORKDIR /usr/src/app
 ADD . .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r ./requirements.txt
 RUN python init_db.py
 EXPOSE 3111
 
