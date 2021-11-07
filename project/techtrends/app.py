@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
 from datetime import datetime
 import logging
+import sys
 
 connection_count = 0
 
@@ -103,6 +104,13 @@ def log_message(msg):
 # start the application on port 3111
 if __name__ == "__main__":
     ## stream logs to a file
-    logging.basicConfig(level=logging.DEBUG)
+     # set logger to handle STDOUT and STDERR 
+    stdout_handler = logging.StreamHandler(sys.stdout)# stdout handler
+    stderr_handler = logging.StreamHandler(sys.stderr)# stderr handler 
+    handlers = [stderr_handler, stdout_handler]
+    # format output
+    #format_output = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+    logging.basicConfig(level=logging.DEBUG, handlers=handlers)
 
     app.run(host='0.0.0.0', port='3111')
